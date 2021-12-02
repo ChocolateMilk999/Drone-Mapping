@@ -5,14 +5,13 @@ from time import sleep
 import cv2
 import math
 
-####################PARAMETERS####################
+#Paramiters:
 fSpeed = 117/10  # Forward Speed in cm/s  (15cm/s)
 aSpeed = 360/10  # Angular Speed Degrees/s  (50d/s)
 interval = 0.25
 
 dInterval = fSpeed*interval
 aInterval = aSpeed*interval
-##################################################
 
 #Important Variables and thier Values:
 x, y = 500, 500
@@ -78,10 +77,6 @@ def getKeyboardInput():
     x += int(d * math.cos(math.radians(a)))
     y += int(d * math.sin(math.radians(a)))
 
-
-
-
-
     return [lr, fb, ud, yv]
 
 #Drawing code:
@@ -100,7 +95,7 @@ while True:
 #Cordanates code:
     img =  np.zeros((1000, 1000, 3), np.unit8)
     if (points[-1][0] != vals[4] or points[-1][1] != vals[5]):
-        points.append = ((vals[4], vals[5]))
+        points.append((vals[4], vals[5]))
     drawPoints(img, points)
     cv2.imshow("Output", img)
     cv2.waitKey(1)
